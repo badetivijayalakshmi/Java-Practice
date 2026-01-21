@@ -1,4 +1,5 @@
 Java StringBuilder – Notes
+
 1️⃣ Declaration
 StringBuilder sb = new StringBuilder("Apna College");
 System.out.println(sb);
@@ -32,8 +33,10 @@ StringBuilder sb = new StringBuilder("Tony Stark");
 System.out.println(sb.length());
 
 8️⃣ Reverse a String (Manual)
-StringBuilder sb = new StringBuilder("HelloWorld");
 
+CODE
+
+StringBuilder sb = new StringBuilder("HelloWorld");
 for(int i = 0; i < sb.length() / 2; i++) {
     int front = i;
     int back = sb.length() - i - 1;
@@ -42,7 +45,6 @@ for(int i = 0; i < sb.length() / 2; i++) {
     sb.setCharAt(front, backChar);
     sb.setCharAt(back, frontChar);
 }
-
 System.out.println(sb); // dlroWolleH
 
 ⚠️ Important Points
