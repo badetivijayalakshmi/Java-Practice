@@ -1,0 +1,90 @@
+Bit Manipulation in Java
+
+Bit manipulation is used to perform operations directly on binary representations of numbers.
+
+1. Get Bit
+
+Check whether the bit at a given position is 0 or 1.
+
+public class Bits {
+    public static void main(String[] args) {
+        int n = 5;      // 0101
+        int pos = 3;
+
+        int bitMask = 1 << pos;
+
+        if ((bitMask & n) == 0) {
+            System.out.println("Bit is 0");
+        } else {
+            System.out.println("Bit is 1");
+        }
+    }
+}
+
+2. Set Bit
+
+Set the bit at a given position to 1.
+
+public class Bits {
+    public static void main(String[] args) {
+        int n = 5;    // 0101
+        int pos = 1;
+
+        int bitMask = 1 << pos;
+        int newNumber = bitMask | n;
+
+        System.out.println(newNumber);
+    }
+}
+
+3. Clear Bit
+
+Set the bit at a given position to 0.
+
+public class Bits {
+    public static void main(String[] args) {
+        int n = 5;    // 0101
+        int pos = 2;
+
+        int bitMask = 1 << pos;
+        int newBitMask = ~bitMask;
+        int newNumber = newBitMask & n;
+
+        System.out.println(newNumber);
+    }
+}
+
+4. Update Bit
+
+Update the bit at a given position (set or clear).
+
+import java.util.Scanner;
+
+public class Bits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int oper = sc.nextInt(); // 1 = set, 0 = clear
+        int n = 5;               // 0101
+        int pos = 1;
+
+        int bitMask = 1 << pos;
+
+        if (oper == 1) {
+            // Set bit
+            int newNumber = bitMask | n;
+            System.out.println(newNumber);
+        } else {
+            // Clear bit
+            int newBitMask = ~bitMask;
+            int newNumber = newBitMask & n;
+            System.out.println(newNumber);
+        }
+    }
+}
+
+🔑 Quick Formula Summary
+Get Bit    → (n & (1 << pos))
+Set Bit    → n | (1 << pos)
+Clear Bit  → n & ~(1 << pos)
+Update Bit → Set(for pos=1) or Clear(for pos=0) based on condition
