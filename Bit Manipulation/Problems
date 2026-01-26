@@ -1,0 +1,134 @@
+1️⃣ Check if a Number is a Power of 2
+👉 Concept
+
+A number is a power of 2 if it has only ONE set bit (1) in binary.
+Example:
+
+8 → 1000 ✅
+
+10 → 1010 ❌
+
+👉 Logic
+n & (n - 1) == 0   → power of 2
+
+👉 Code
+public class PowerOfTwo {
+    public static void main(String[] args) {
+        int n = 8;
+
+        if (n > 0 && (n & (n - 1)) == 0) {
+            System.out.println("Power of 2");
+        } else {
+            System.out.println("Not a power of 2");
+        }
+    }
+}
+
+2️⃣ Toggle a Bit at Position pos in Number n
+👉 Concept
+
+Toggle means:
+
+1 → 0
+
+0 → 1
+
+👉 Logic
+Toggle → XOR (^)
+n ^ (1 << pos)
+
+👉 Code
+public class ToggleBit {
+    public static void main(String[] args) {
+        int n = 5;    // 0101
+        int pos = 1;
+
+        int result = n ^ (1 << pos);
+        System.out.println(result);
+    }
+}
+
+3️⃣ Count Number of 1’s in Binary Representation
+👉 Concept
+
+Count how many 1s are present in the binary form of a number.
+
+👉 Efficient Logic (Brian Kernighan’s Algorithm)
+
+Each step removes the rightmost set bit.
+
+n = n & (n - 1)
+
+👉 Code
+public class CountOnes {
+    public static void main(String[] args) {
+        int n = 13; // 1101
+        int count = 0;
+
+        while (n != 0) {
+            n = n & (n - 1);
+            count++;
+        }
+
+        System.out.println(count);
+    }
+}
+
+4️⃣ Decimal to Binary Conversion
+👉 Concept
+
+Divide number by 2
+
+Store remainders
+
+Read in reverse order
+
+👉 Code
+public class DecimalToBinary {
+    static void decimalToBinary(int n) {
+        String binary = "";
+
+        while (n > 0) {
+            binary = (n % 2) + binary;
+            n = n / 2;
+        }
+
+        System.out.println(binary);
+    }
+
+    public static void main(String[] args) {
+        decimalToBinary(10);
+    }
+}
+
+5️⃣ Binary to Decimal Conversion
+👉 Concept
+
+Multiply each digit by powers of 2.
+
+👉 Code
+public class BinaryToDecimal {
+    static void binaryToDecimal(String binary) {
+        int decimal = 0;
+        int power = 0;
+
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            int digit = binary.charAt(i) - '0';
+            decimal += digit * Math.pow(2, power);
+            power++;
+        }
+
+        System.out.println(decimal);
+    }
+
+    public static void main(String[] args) {
+        binaryToDecimal("1010");
+    }
+}
+
+🔑 One-Line Summary
+Power of 2 → n & (n - 1) == 0
+Toggle Bit → n ^ (1 << pos)
+Count 1s   → n = n & (n - 1)
+Dec → Bin  → divide by 2
+Bin → Dec  → sum of (digit × 2^position)
