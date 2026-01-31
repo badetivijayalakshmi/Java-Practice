@@ -1,0 +1,47 @@
+OOPS Basics in Java
+Class → Blueprint of objects
+Object → Instance of a class
+Method → Defines behavior
+Constructor → Initializes object
+this → Refers to current object
+Example
+class Pen {
+    String color;
+    String type;
+
+    // Default Constructor
+    Pen() {
+        // required for object creation
+    }
+
+    // Parameterized Constructor
+    Pen(String color, String type) {
+        this.color = color;
+        this.type = type;
+    }
+
+    // Copy Constructor
+    Pen(Pen pen2) {
+        this.color = pen2.color;
+        this.type = pen2.type;
+    }
+
+    // Method to print details
+    public void printDetails() {
+        System.out.println("Color: " + this.color);
+        System.out.println("Type: " + this.type);
+    }
+}
+
+public class OOPS {
+    public static void main(String[] args) {
+
+        // Creating object using parameterized constructor
+        Pen pen1 = new Pen("Blue", "Gel");
+
+        // Creating object using copy constructor
+        Pen pen2 = new Pen(pen1);
+
+        pen2.printDetails();
+    }
+}
