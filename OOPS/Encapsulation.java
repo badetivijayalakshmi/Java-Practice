@@ -46,3 +46,27 @@ public class EncapsulationDemo {
     }
 }
 //Output- Name: Sai Balance: 5000.0
+//Simple Example
+class Student{
+    String name;
+    private int marks;
+
+    //setter
+    public void setMarks(int stumarks){
+        this.marks = stumarks;
+    }
+    //getter
+    public int getMarks(){
+        return marks;
+    }
+}
+
+public class Java{
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.name = "Sai";
+        System.out.println(s1.name);
+        s1.setMarks(50);
+        System.out.println("Marks of s1: " + s1.getMarks());
+    }
+}
