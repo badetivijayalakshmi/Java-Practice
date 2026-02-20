@@ -1,38 +1,50 @@
-//Use of Constructors 
-
 class Pen {
+
     private String color;
     private String type;
+    private static int count = 0;   // Static variable to count objects
 
     // Default Constructor
     Pen() {
         this.color = "Blue";
         this.type = "Ball";
+        count++;   // Increment when object is created
     }
 
     // Parameterized Constructor
     Pen(String color, String type) {
         this.color = color;
         this.type = type;
+        count++;   // Increment when object is created
     }
 
     public void printDetails() {
-        System.out.println("Color of pen: " + color);
-        System.out.println("Type (Ball/Gel): " + type);
+        System.out.println("Color: " + color);
+        System.out.println("Type: " + type);
+    }
+
+    // Static method to display object count
+    public static void displayCount() {
+        System.out.println("Total objects created: " + count);
     }
 }
 
 public class Java {
     public static void main(String[] args) {
 
-        // Using Default Constructor
         Pen p1 = new Pen();
-        p1.printDetails();
+        Pen p2 = new Pen("Black", "Gel");
+        Pen p3 = new Pen("Red", "Ball");
 
+        p1.printDetails();
         System.out.println();
 
-        // Using Parameterized Constructor
-        Pen p2 = new Pen("Black", "Gel");
         p2.printDetails();
+        System.out.println();
+
+        p3.printDetails();
+        System.out.println();
+
+        Pen.displayCount();  // Call using class name
     }
 }
