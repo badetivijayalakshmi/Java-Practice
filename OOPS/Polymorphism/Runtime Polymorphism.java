@@ -1,3 +1,5 @@
+//In Java, overridden methods are resolved at runtime based on the actual object, not the reference type. 
+//This mechanism is called Dynamic Method Dispatch.
 class Parent{
     double amount;
     public void pay(double amount){
