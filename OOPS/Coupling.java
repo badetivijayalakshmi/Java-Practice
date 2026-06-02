@@ -1,7 +1,6 @@
-class Computer{
-    public void code(){//loose coupling
+abstract class Computer{//adding an abstraction layer
+    public abstract void code()//loose coupling
         
-    }
 }
 class Laptop extends Computer{
     public void code(){
